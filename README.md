@@ -19,6 +19,23 @@ By utilizing `wazero` (a 100% pure Go WebAssembly runtime) and a custom memory-b
 - **Zero idle RAM overhead** as sandboxes are destroyed immediately after execution.
 - **Pure Go execution** with no CGO dependencies, compiling down to a single, static binary.
 
+### 📊 Comparative Analysis: WASM vs. Docker
+
+| Criterion | Docker Containers | WASM Micro-Edge Router (wazero) |
+| :--- | :--- | :--- |
+| **Cold Start Time** | Slow (500ms - 5s) | Ultra-fast (**~7ms** including instantiation) |
+| **Idle RAM Overhead** | High (50MB - 200MB+ per container) | Zero (**~0MB** - destroyed immediately after request) |
+| **Sandbox Image Size** | Large (100MB - 1GB+) | Tiny (**~3MB** raw bytecode) |
+| **Isolation Model** | OS-level namespaces & cgroups | Hard memory virtualization inside virtual machine |
+| **Dependency Model** | Bundle OS libraries in layers | Single static binary (no OS dependencies) |
+| **Language Support** | Universal (any OS binary) | Compile-to-WASM (Go, Rust, C, AssemblyScript, Zig) |
+
+### 🎯 When to Choose This Project?
+
+* **Multi-Tenant User Code**: You need to run untrusted, user-submitted scripts (webhooks, data filters, plugins) securely without risking the host server's integrity.
+* **Low-Resource Environments**: Running on Edge nodes, Raspberry Pi, or IoT gateways where Docker's RAM overhead makes multi-service deployments impossible.
+* **Microsecond Scale-to-Zero**: Eliminating the need to keep warm container pools running; spin up sandboxes instantly on demand and tear them down immediately.
+
 ---
 
 ## 🌟 Key Features
