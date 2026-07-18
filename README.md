@@ -40,11 +40,11 @@ graph TD
     RuntimeMgr -->|2. Check Cache / config.json| Cache[WasmFunction Cache]
     Router -->|3. Instantiate Sandbox| Guest[WASM Sandbox Instance: hello.wasm]
     Router -->|4. Allocate Memory & Write Payload| Bridge[Memory Bridge: bridge.go]
-    Bridge -->|5. Invoke handler()| Guest
+    Bridge -->|5. Invoke handler| Guest
     Guest -->|6. Return Packed Pointer & Length| Bridge
     Bridge -->|7. Read Memory & Decode Response| Router
     Router -->|8. HTTP Response| Client
-    Router -.->|9. Close() Sandbox| Guest
+    Router -.->|9. Close Sandbox| Guest
 ```
 
 ---
