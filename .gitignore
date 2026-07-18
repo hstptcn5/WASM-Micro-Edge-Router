@@ -1,0 +1,14 @@
+# Compiled binaries
+wasm-edge-router
+wasm-edge-router.exe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Local development files
+.env
+.idea/
+.vscode/
+*.swp
+*.log

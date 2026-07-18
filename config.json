@@ -1,0 +1,16 @@
+{
+  "functions": [
+    {
+      "name": "hello",
+      "wasm_path": "functions/hello.wasm",
+      "routes": ["/hello", "/api/greet"],
+      "memory_limit_pages": 256
+    },
+    {
+      "name": "markdown",
+      "wasm_path": "functions/markdown.wasm",
+      "routes": ["/api/markdown"],
+      "memory_limit_pages": 256
+    }
+  ]
+}
